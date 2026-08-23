@@ -1,0 +1,3 @@
+data/fraud_data_raw.csv
+*.csv
+data/fraud_data_cleaned.csv
