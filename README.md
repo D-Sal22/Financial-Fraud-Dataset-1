@@ -16,7 +16,7 @@ After placing the file in the `data/` folder, the notebooks will load it automat
 df = pd.read_csv("../data/fraud_data_raw.csv") `
 
 ## Appendix
-# Dataset Column Definitions
+**Dataset Column Definitions**
 
 Below is a description of each column in the synthetic financial‑fraud dataset:
 
