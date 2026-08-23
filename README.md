@@ -12,10 +12,8 @@ This repository does not include the original dataset due to file size limits on
 Before running any notebooks, please download the dataset provided in Canvas and place it in the following directory:
 After placing the file in the `data/` folder, the notebooks will load it automatically using:
 
-```python
-df = pd.read_csv("../data/fraud_data_raw.csv")
-
-
+`python
+df = pd.read_csv("../data/fraud_data_raw.csv") `
 
 ## Appendix
 ## Dataset Column Definitions
