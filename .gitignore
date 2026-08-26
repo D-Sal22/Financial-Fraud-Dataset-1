@@ -1,3 +1,5 @@
 data/fraud_data_raw.csv
 *.csv
 data/fraud_data_cleaned.csv
+# Large/local datasets - do not commit to GitHub
+data/

@@ -1,19 +1,70 @@
-## Project Overview
-This project builds a fraud‑detection model using a synthetic financial transactions dataset. It includes three main components: exploratory data analysis (EDA), preprocessing, and modeling.
+# Financial Fraud Detection
 
-##  Project Summary
-This project builds a fraud‑detection model using a synthetic financial transactions dataset. The workflow includes exploratory data analysis to identify fraud‑related patterns, preprocessing to clean and engineer features, and modeling using a Random Forest classifier and Logistic Regression comparison. The final model achieves strong fraud‑focused performance with high precision and recall, making it effective at identifying fraudulent activity while minimizing false positives. All notebooks are organized to run sequentially once the dataset is placed in the `data/` folder.
+## Project Overview
+
+This project develops a machine learning workflow for identifying fraudulent activity within a synthetic financial transactions dataset. The analysis moves from exploratory data analysis (EDA) and preprocessing through model development, hyperparameter tuning, and evaluation.
+
+The project compares Logistic Regression with a Random Forest classifier, with Random Forest selected as the final model based on its stronger balance of precision and recall for fraudulent transactions.
+
+## Key Results
+
+The final Random Forest model achieved:
+
+- **Precision:** 0.91
+- **Recall:** 0.88
+- **F1 Score:** 0.90
+- **ROC-AUC:** 0.9987
+
+The model correctly identified **1,451 of 1,643 fraudulent transactions** in the test set while producing **141 false-positive alerts**.
+
+GridSearchCV was used to evaluate alternative Random Forest hyperparameters. The search selected 200 estimators, no maximum depth restriction, and a minimum samples split of 2, confirming that the baseline Random Forest configuration was already optimal among the tested combinations.
+
+## Project Workflow
+
+1. **Exploratory Data Analysis (EDA)**  
+   Examines transaction distributions, fraud frequency, class imbalance, transaction types, balance behavior, and relationships among numeric features.
+
+2. **Preprocessing & Feature Engineering**  
+   Removes high-cardinality and low-information fields, encodes transaction type, and creates balance-difference features informed by the EDA.
+
+3. **Modeling & Evaluation**  
+   Compares Logistic Regression and Random Forest, performs Random Forest hyperparameter tuning with GridSearchCV, and evaluates fraud-focused performance using precision, recall, F1 score, confusion matrices, and ROC-AUC.
+
+4. **Final Report**  
+   Summarizes the analytical findings, feature-selection decisions, tuning strategy, model performance, and interpretation of fraud-focused metrics.
+
+## Project Files
+
+- [`eda.ipynb`](notebooks/eda.ipynb) — Exploratory data analysis
+- [`preprocessing.ipynb`](notebooks/preprocessing.ipynb) — Data cleaning and feature engineering
+- [`modeling.ipynb`](notebooks/modeling.ipynb) — Model development, tuning, and evaluation
+- [`FINALREPORT.md`](report/FINALREPORT.md) — Final project report
+
+## Tools & Technologies
+
+- Python
+- pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- scikit-learn
+- Jupyter Notebook
+- Git / GitHub
 
 
 ## Data Setup Instructions
 
 This repository does not include the original dataset due to file size limits on GitHub.
 
-Before running any notebooks, please download the dataset provided in Canvas and place it in the following directory:
-After placing the file in the `data/` folder, the notebooks will load it automatically using:
+Before running the notebooks, create a `data/` folder in the project root and place the raw dataset in that directory as:
 
-`python
-df = pd.read_csv("../data/fraud_data_raw.csv") `
+`fraud_data_raw.csv`
+
+The EDA and preprocessing notebooks will load the raw dataset using:
+
+```python
+df = pd.read_csv("../data/fraud_data_raw.csv")
+
 
 ## Appendix
 **Dataset Column Definitions**
